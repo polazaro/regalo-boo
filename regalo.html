@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Una sorpresa para descubrir nuestro próximo viaje."
+    />
+    <title>Una sorpresa para ti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="experience">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="island island--far" aria-hidden="true"></div>
+      <div class="island island--near" aria-hidden="true"></div>
+
+      <section class="screen screen--welcome active" data-screen="welcome">
+        <img class="boo-photo" src="assets/boo-monstruos-sa.png" alt="Boo, de Monstruos S.A." />
+        <p class="eyebrow">Misión secreta para Boo</p>
+        <span class="heart" aria-hidden="true">♡</span>
+        <h1>Boo, tienes una<br />aventura que resolver.</h1>
+        <p class="intro">
+          Reúne las pistas, prepara la maleta y descubre el destino que he guardado para nosotros.
+        </p>
+        <button class="button button--primary" type="button" data-action="start">
+          Empezar a descubrir
+          <span aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <section class="screen" data-screen="game" aria-live="polite">
+        <header class="game-header">
+          <button class="back-button" type="button" data-action="restart">
+            <span aria-hidden="true">←</span> Empezar de nuevo
+          </button>
+          <div class="progress-wrap">
+            <p><span id="step-number">1</span> de 8 pruebas</p>
+            <div class="progress" aria-label="Progreso del juego">
+              <span id="progress-bar"></span>
+            </div>
+          </div>
+        </header>
+
+        <aside class="passport" aria-label="Sellos de misión descubiertos">
+          <span class="passport__label">Pasaporte de Boo</span>
+          <span class="stamp" data-stamp="1">?</span><span class="stamp" data-stamp="2">?</span>
+          <span class="stamp" data-stamp="3">?</span><span class="stamp" data-stamp="4">?</span>
+          <span class="stamp" data-stamp="5">?</span><span class="stamp" data-stamp="6">?</span>
+          <span class="stamp" data-stamp="7">?</span><span class="stamp" data-stamp="8">?</span>
+        </aside>
+
+        <article class="challenge active" data-challenge="1">
+          <p class="eyebrow">Expediente 1 · El tipo de escapada</p>
+          <span class="challenge-icon" aria-hidden="true">⌇</span>
+          <h2>Lee el parte de la misión: 27 °C, índice UV alto, brisa de 18 nudos y cota máxima: 0 m.</h2>
+          <p class="hint">¿Qué expediente encaja con todos los datos, Boo?</p>
+          <div class="answers">
+            <button type="button" data-choice="wrong">Expediente: gran ciudad</button>
+            <button type="button" data-choice="correct">Expediente: costa</button>
+            <button type="button" data-choice="wrong">Expediente: montaña</button>
+          </div>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="2">
+          <p class="eyebrow">Expediente 2 · El mapa del mundo</p>
+          <span class="challenge-icon" aria-hidden="true">◌</span>
+          <h2>El rango de coordenadas del dossier es 36°–71° N y 9° O–66° E.</h2>
+          <p class="hint">El continente está entre el Atlántico, el Ártico y el Mediterráneo.</p>
+          <div class="continent-grid">
+            <button type="button" data-choice="wrong">América</button><button type="button" data-choice="correct">Europa</button>
+            <button type="button" data-choice="wrong">Asia</button><button type="button" data-choice="wrong">Oceanía</button>
+          </div>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="3">
+          <p class="eyebrow">Expediente 3 · La forma del destino</p>
+          <span class="challenge-icon" aria-hidden="true">◒</span>
+          <h2>El informe describe 76 km² de tierra rodeada por agua, con pueblos que miran hacia el horizonte.</h2>
+          <p class="cipher">No es un continente. No es una península. No es una ciudad.</p>
+          <p class="hint">¿Qué forma geográfica tiene nuestro destino?</p>
+          <form class="word-form" data-answer="isla" novalidate>
+            <label class="sr-only" for="country-answer">Forma geográfica</label>
+            <input id="country-answer" type="text" autocomplete="off" placeholder="La forma del destino" />
+            <button class="button button--primary" type="submit">Confirmar <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="4">
+          <p class="eyebrow">Expediente 4 · La maleta de Boo</p>
+          <span class="challenge-icon" aria-hidden="true">▣</span>
+          <h2>Prepara lo necesario sin saber todavía a dónde vamos.</h2>
+          <p class="hint">Elige cuatro objetos que encajen con las pistas que has descubierto.</p>
+          <div class="packing-grid">
+            <button type="button" data-pack="correct">🩱<span>Bañador</span></button><button type="button" data-pack="wrong">🧥<span>Abrigo</span></button>
+            <button type="button" data-pack="correct">🧴<span>Protector solar</span></button><button type="button" data-pack="wrong">🥾<span>Botas</span></button>
+            <button type="button" data-pack="correct">🕶️<span>Gafas de sol</span></button><button type="button" data-pack="wrong">☂️<span>Paraguas</span></button>
+            <button type="button" data-pack="correct">📷<span>Cámara</span></button><button type="button" data-pack="wrong">🧣<span>Bufanda</span></button>
+          </div>
+          <button class="button button--primary pack-submit" type="button">Cerrar maleta <span aria-hidden="true">→</span></button>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="5">
+          <p class="eyebrow">Prueba 1 · La sopa de letras</p>
+          <span class="challenge-icon" aria-hidden="true">⌕</span>
+          <h2>Encuentra una pista que también se disfruta con el paladar.</h2>
+          <p class="hint">La palabra está escondida en línea recta: horizontal, vertical o diagonal.</p>
+          <div class="word-search" aria-label="Sopa de letras">
+            <span>C</span><span>Y</span><span>P</span><span>L</span><span>A</span><span>T</span><span>O</span><span>S</span><span>Q</span><span>R</span><span>V</span><span>B</span>
+            <span>N</span><span>G</span><span>A</span><span>S</span><span>T</span><span>R</span><span>O</span><span>N</span><span>O</span><span>M</span><span>I</span><span>A</span>
+            <span>M</span><span>F</span><span>O</span><span>G</span><span>A</span><span>T</span><span>E</span><span>R</span><span>U</span><span>H</span><span>D</span><span>P</span>
+            <span>I</span><span>J</span><span>V</span><span>E</span><span>R</span><span>A</span><span>N</span><span>O</span><span>L</span><span>C</span><span>Q</span><span>Y</span>
+            <span>S</span><span>A</span><span>L</span><span>O</span><span>L</span><span>I</span><span>V</span><span>O</span><span>S</span><span>P</span><span>N</span><span>F</span>
+            <span>T</span><span>U</span><span>C</span><span>O</span><span>S</span><span>T</span><span>A</span><span>R</span><span>Q</span><span>A</span><span>E</span><span>L</span>
+            <span>R</span><span>E</span><span>S</span><span>O</span><span>L</span><span>H</span><span>M</span><span>Y</span><span>P</span><span>D</span><span>O</span><span>Z</span>
+            <span>U</span><span>N</span><span>A</span><span>V</span><span>E</span><span>L</span><span>A</span><span>R</span><span>S</span><span>T</span><span>A</span><span>R</span>
+            <span>B</span><span>O</span><span>Q</span><span>U</span><span>E</span><span>S</span><span>O</span><span>C</span><span>E</span><span>A</span><span>N</span><span>O</span>
+          </div>
+          <form class="word-form" data-answer="gastronomia" novalidate>
+            <label class="sr-only" for="cipher-answer">Palabra encontrada</label>
+            <input id="cipher-answer" type="text" autocomplete="off" placeholder="Palabra encontrada" />
+            <button class="button button--primary" type="submit">Comprobar <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="6">
+          <p class="eyebrow">Prueba 2 · La mesa del investigador</p>
+          <span class="challenge-icon" aria-hidden="true">⌬</span>
+          <h2>Selecciona las tres evidencias que pueden pertenecer al mismo lugar.</h2>
+          <p class="hint">No elijas lo bonito: elige lo que encaje con una isla griega nacida del fuego.</p>
+          <div class="evidence-grid">
+            <button type="button" data-evidence="correct">Aguas termales</button><button type="button" data-evidence="wrong">Rascacielos</button>
+            <button type="button" data-evidence="correct">Ceniza volcánica</button><button type="button" data-evidence="wrong">Glaciar</button>
+            <button type="button" data-evidence="wrong">Metro</button><button type="button" data-evidence="correct">Acantilado</button>
+          </div>
+          <button class="button button--primary evidence-submit" type="button">Guardar evidencias <span aria-hidden="true">→</span></button>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="7">
+          <p class="eyebrow">Prueba 3 · El detalle arquitectónico</p>
+          <span class="challenge-icon" aria-hidden="true">◉</span>
+          <h2>En el informe aparecen tejados redondeados, blancos y azules, asomados al mar.</h2>
+          <div class="logic-note">
+            <p>No son castillos ni rascacielos.</p>
+            <p>Son la silueta más reconocible de las postales del destino.</p>
+          </div>
+          <form class="word-form" data-answer="cupulas" novalidate>
+            <label class="sr-only" for="archipelago-answer">Elemento arquitectónico</label>
+            <input id="archipelago-answer" type="text" autocomplete="off" placeholder="¿Qué son?" />
+            <button class="button button--primary" type="submit">Descubrir <span aria-hidden="true">→</span></button>
+          </form>
+          <button class="hint-button" type="button">Necesito una pista</button>
+          <p class="feedback" aria-live="assertive"></p>
+        </article>
+
+        <article class="challenge" data-challenge="8">
+          <p class="eyebrow">Expediente completo · Boo</p>
+          <span class="challenge-icon" aria-hidden="true">✓</span>
+          <h2>Has resuelto todos los hallazgos de la misión.</h2>
+          <div class="trip-summary">
+            <p><span>Tipo de viaje</span>Costa y sol</p>
+            <p><span>Continente</span>Europa</p>
+            <p><span>Forma</span>Isla</p>
+            <p><span>Equipaje</span>Bañador, cámara y protección solar</p>
+            <p><span>Evidencias</span>Gastronomía, cúpulas y paisaje volcánico</p>
+          </div>
+          <p class="hint">Todo está listo. Solo queda abrir tu sorpresa.</p>
+          <button class="button button--primary" type="button" data-action="reveal">Descubrir el destino <span aria-hidden="true">→</span></button>
+        </article>
+      </section>
+
+      <section class="screen screen--stays" data-screen="stays">
+        <p class="eyebrow">Última decisión, Boo</p>
+        <h2>Elige dónde quieres despertar en Santorini.</h2>
+        <p class="intro">Las dos opciones tienen vistas increíbles. ¿Cuál te pide más una escapada juntos?</p>
+        <div class="stay-grid">
+          <article class="stay-card">
+            <img src="assets/alojamiento-caldera.png" alt="Terraza con jacuzzi y vistas a la caldera" />
+            <div class="stay-card__content">
+              <p class="stay-card__label">Opción 1</p>
+              <h3>Suite con vistas a la Caldera</h3>
+              <p>Terraza privada, jacuzzi al aire libre y panorámica abierta al mar para terminar el día viendo el atardecer.</p>
+              <a href="https://www.airbnb.es/rooms/42348159?source_impression_id=p3_1783780234_P3vb0qNzju-SCSjb" target="_blank" rel="noopener noreferrer">Ver anuncio en Airbnb ↗</a>
+              <button class="button button--primary" type="button" data-action="choose-stay">Me quedo con esta <span aria-hidden="true">♡</span></button>
+            </div>
+          </article>
+          <article class="stay-card">
+            <img src="assets/alojamiento-nastram.png" alt="Habitación doble con vistas al mar al atardecer" />
+            <div class="stay-card__content">
+              <p class="stay-card__label">Opción 2</p>
+              <h3>Nastram Suites Oia</h3>
+              <p>Habitación doble tranquila, detalles de piedra y una terraza para contemplar el mar y el atardecer de Oia.</p>
+              <a href="https://www.airbnb.es/rooms/1138906647201834329?source_impression_id=p3_1783780291_P3BIJpTjM6sAs4VU" target="_blank" rel="noopener noreferrer">Ver anuncio en Airbnb ↗</a>
+              <button class="button button--primary" type="button" data-action="choose-stay">Me quedo con esta <span aria-hidden="true">♡</span></button>
+            </div>
+          </article>
+        </div>
+        <p class="stay-feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="screen screen--reveal" data-screen="reveal">
+        <div class="sparkle sparkle--one" aria-hidden="true">✦</div>
+        <div class="sparkle sparkle--two" aria-hidden="true">✦</div>
+        <p class="eyebrow">Nuestro próximo capítulo</p>
+        <p class="reveal-pretitle">Nos vamos a</p>
+        <h1>Santorini</h1>
+        <img class="santorini-photo" src="assets/santorini-sunset.png" alt="Atardecer entre las cúpulas azules de Santorini" />
+        <div class="reveal-card">
+          <p class="date">18 — 20 de septiembre</p>
+          <div class="card-divider"></div>
+          <p>Vuelo y hotel incluidos</p>
+        </div>
+        <p class="reveal-message">
+          Tres días para perdernos entre atardeceres,<br />mar azul y momentos contigo.
+        </p>
+        <button class="button button--primary" type="button" data-action="stays">
+          Elegir alojamiento <span aria-hidden="true">→</span>
+        </button>
+        <button class="button button--secondary" type="button" data-action="restart">
+          Volver a jugar <span aria-hidden="true">↻</span>
+        </button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
